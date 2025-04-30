@@ -17,3 +17,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "GeminiImageToPromptNode": "Gemini Image to Prompt",
     "GeminiTextToCinematicPromptNode": "Gemini Text to Cinematic Prompt",
     "DeepseekR1KlingAINode": "Deepseek R1 KlingAI Text/Image to Video Node"
+}
