@@ -2,7 +2,7 @@ import requests
 import os
 import json
 
-class KlingAINode:
+class DeepseekR1KlingAINode:
     @classmethod
     def INPUT_TYPES(cls):
         return {
