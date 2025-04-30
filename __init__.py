@@ -3,7 +3,7 @@
 # Importar los nodos personalizados
 from .gemini_prompt_node import GeminiImageToPromptNode
 from .gemini_text_to_prompt_node import GeminiTextToCinematicPromptNode
-from .deepseek_r1_klingai_node import DeepseekR1KlingAINode
+from .deepseek_klingai_node import DeepseekR1KlingAINode
 
 # Mapeo interno de clases de nodos para ComfyUI
 NODE_CLASS_MAPPINGS = {
