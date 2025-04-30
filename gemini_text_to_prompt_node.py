@@ -85,5 +85,5 @@ class GeminiTextToCinematicPromptNode:
             generated_prompt = response.candidates[0].content.parts[0].text
         except (IndexError, AttributeError):
             generated_prompt = "No valid prompt was generated."
-
+        print(generated_prompt)
         return (str(generated_prompt),)
