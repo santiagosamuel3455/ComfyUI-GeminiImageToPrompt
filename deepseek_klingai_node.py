@@ -142,19 +142,40 @@ class DeepseekR1KlingAINode:
         }
 
         try:
+            # Realizar la solicitud POST
             response = requests.post(url, headers=headers, json=payload, stream=True)
-            full_response = ""
-            for line in response.iter_lines(decode_unicode=True):
-                if line.startswith("data:"):
-                    try:
-                        data = json.loads(line[5:].strip())
-                        content = data.get("choices", [{}])[0].get("delta", {}).get("content", "")
-                        full_response += content
-                    except Exception:
-                        pass
-            return full_response.strip()
-        except Exception:
-            return "Failed to get response."
+
+            # Verificar si la solicitud fue exitosa
+            if response.status_code == 200:
+                full_response = ""
+                for line in response.iter_lines(decode_unicode=True):
+                    if line.startswith("data:"):
+                        try:
+                            data = line[5:].strip()
+                            if data != "[DONE]":
+                                json_data = json.loads(data)  # Usar json.loads para analizar el JSON
+                                delta = json_data.get("choices", [{}])[0].get("delta", {})
+                                delta_content = delta.get("content", "")
+                                delta_type = delta.get("type", "")
+
+                                # Solo procesar si el tipo es "text"
+                                if delta_type == "text":
+                                    full_response += delta_content
+                        except Exception as e:
+                            print(f"Error al procesar la línea: {e}")
+
+                # Imprimir la respuesta completa
+                print("Respuesta final:")
+                #print(full_response)
+                return full_response
+            else:
+                print(f"Error: Código de estado HTTP {response.status_code}")
+                return f"Error: Código de estado HTTP {response.status_code}"
+
+        except Exception as e:
+            print(f"Error en la solicitud: {e}")
+            return f"Error en la solicitud: {e}"
+
 
     def login_pre(self, email, password):
         url = "https://id.klingai.com/pass/ksi18n/web/login/emailPassword"
