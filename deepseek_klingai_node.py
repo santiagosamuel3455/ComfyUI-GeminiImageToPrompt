@@ -15,10 +15,10 @@ class DeepseekR1KlingAINode:
         return {
             "required": {
                 # Campo editable: Email
-                "email": ("STRING", {"default": "almacenamientodrive81@gmail.com", "multiline": False}),
+                "email": ("STRING", {"default": "", "multiline": False}),
                 
                 # Campo oculto: Contraseña
-                "password": ("STRING", {"default": "karAr3544_a334", "multiline": False, "display": "password"}),
+                "password": ("STRING", {"default": "", "multiline": False, "display": "password"}),
                 
                 # Prompt configurable
                 "prompt": ("STRING", {"default": "un auto de color rojo", "multiline": True}),
