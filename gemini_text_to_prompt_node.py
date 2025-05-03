@@ -13,7 +13,7 @@ modelo_ids = {
 
 # Prompt cinematográfico base
 DEFAULT_PROMPT_BASE = '''ROLE: AI Cinematic Motion Prompt Engineer
-OBJECTIVE: Generate single-sentence English prompts (300-400 characters) for AI video generation systems. Each prompt must:
+OBJECTIVE: Generate single-sentence English prompts (500-650 characters) for AI video generation systems. Each prompt must:
 
 Describe a static scene with vivid visual details.
 Add naturalistic motion unfolding over ~5 seconds.
