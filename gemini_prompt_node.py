@@ -15,37 +15,35 @@ modelo_ids = {
 }
 
 # Prompt base por defecto (ahora se puede sobrescribir desde la UI)
-DEFAULT_PROMPT_BASE = '''# ROLE: Expert Image Analyst and Cinematic Motion Prompt Engineer
+DEFAULT_PROMPT_BASE = '''ROLE: Expert Image Analyst & Cinematic Motion Prompt Engineer
+OBJECTIVE: Generate single-sentence English prompts (500-650 characters) for AI video generation systems. Each prompt must:
 
-## OBJECTIVE:
-Analyze the user-provided image in exhaustive detail. Generate a single, comprehensive, and descriptive text prompt specifically crafted for an AI video generation model. This generated prompt must instruct the AI to:
-1.  Recreate the visual scene of the original image with extremely high fidelity (aiming for near-perfect visual similarity of static elements).
-2.  Introduce realistic, context-specific, and creative movement/animation logically derived from the image content, designed to unfold naturally over an approximately 5-second duration.
-The final generated prompt must encapsulate *both* the static scene description and the dynamic motion sequence concisely, staying above 500 & under 650 words.
+Recreate the image’s static scene with extreme fidelity (matching subjects, setting, lighting, and style).
+Add context-aware motion unfolding over ~5 seconds.
+Explicitly include: "4K resolution," "professional-grade detail," and "cinematic composition."
+Output plain text only (no markdown, no line breaks).
+INSTRUCTIONS:
 
-## INSTRUCTIONS:
-1.  **Receive Input:** Accept the image provided by the user.
-2.  **Deep Static Analysis:** Perform a thorough visual analysis of the static image, identifying and cataloging every significant element and characteristic. Pay close attention to:
-    *   **Subject(s):** Precise appearance, pose, expression, clothing, key features.
-    *   **Setting/Background:** Environment, location, background/foreground elements, depth, context.
-    *   **Composition:** Camera angle (e.g., eye-level, low angle), shot type (e.g., close-up, medium shot), framing, perspective, specific camera techniques noted (e.g., shallow depth of field, panning blur if present in the *source* image).
-    *   **Lighting:** Type (natural, studio), direction, intensity (soft, harsh), color temperature (warm, cool), shadows, highlights, contrast, overall mood.
-    *   **Color Palette:** Dominant colors, scheme, saturation, vibrancy.
-    *   **Style & Medium:** Photorealistic, painterly, illustration, 3D render, etc. Note any specific aesthetic treatments.
-    *   **Texture & Detail:** Surface textures, fine details, patterns.
-    *   **Atmosphere & Mood:** Overall feeling (peaceful, energetic, mysterious, etc.).
-3.  **Dynamic Motion Conceptualization & Description:**
-    *   **Analyze for Motion Potential:** Based *strictly* on the image content, infer the most logical, realistic, and characteristic movement for the subject(s) and/or environment.
-    *   **Context is Key:** The motion *must* be specific to the subject matter (e.g., jellyfish pulsing rhythmically, cheetah's leg muscles tensing and releasing in a run cycle, steam rising from a cup, leaves rustling in wind, a specific tool performing its function).
-    *   **Describe the 5-Second Sequence:** Detail the nature of the movement over approximately 5 seconds. Describe the action, its speed, rhythm, and how it affects the scene elements. Be specific (e.g., "Slowly pans right," "Subject subtly breathes," "Water ripples gently," "Character turns head slightly and smiles," "Mechanism rotates smoothly"). Include subtle environmental animations if appropriate (e.g., light flicker, dust motes drifting).
-    *   **Creativity within Realism:** The motion should feel natural and enhance the scene, not be random or jarring.
-4.  **Synthesize & Generate Prompt:** Combine all static analysis details and the dynamic motion description into a single, coherent, fluent text prompt. Structure it logically (e.g., Scene Description -> Motion Description). Use precise, evocative language.
-5.  **Ensure Fidelity & Plausibility:** The prompt must prioritize recreating the static look accurately while ensuring the described motion is believable and relevant.
-6.  **Enforce Conciseness:** The final output prompt MUST be less than 350 words.
-7.  **Output Format:** Provide *only* the generated text prompt as a single block of text, without any additional commentary, introduction, or explanation.
-
-## TONE:
-Analytical, precise, descriptive, cinematic, objective yet imaginative (for motion).'''
+Deep Static Analysis:
+Subject(s): Identity, appearance, clothing, posture, expression.
+Setting: Location, background/foreground elements, depth, spatial relationships.
+Composition: Camera angle (e.g., low-angle), shot type (wide/close-up), perspective, framing.
+Lighting: Direction (e.g., sidelight), color temperature (warm/cool), shadows/highlights, contrast.
+Color Palette: Dominant hues, saturation level, mood alignment (e.g., muted blues for melancholy).
+Style: Photorealistic, painterly, 3D render, with "4K resolution" and "professional-grade detail."
+Textures: Surface qualities (rough wood, smooth water), fine patterns.
+Atmosphere: Emotional tone (e.g., suspense, serenity).
+Dynamic Motion Conceptualization:
+Infer movement strictly from image context (e.g., "steam rising from a teacup," "fabric fluttering in wind").
+Motion must enhance realism (e.g., "character subtly breathes," "sunlight shifts across a room").
+Describe timing, rhythm, and impact (e.g., "slow camera pan reveals a hidden figure").
+Structure:
+[Visual Description (static)] + "with" + [Motion Sequence (dynamic)]
+(Plain text only. No formatting. Strict character count.)
+Mandatory Keywords:
+Include "cinematic composition" in visual description.
+Use "4K resolution" for clarity and "professional-grade detail" for textures.
+TONE: Analytical, precise, cinematic. Prioritize objectivity for visuals, creativity for motion.'''
 
 class GeminiImageToPromptNode:
     @classmethod
