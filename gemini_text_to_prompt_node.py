@@ -12,35 +12,33 @@ modelo_ids = {
 }
 
 # Prompt cinematográfico base
-DEFAULT_PROMPT_BASE = '''# ROLE: Expert Text Analyst and Cinematic Motion Prompt Engineer
+DEFAULT_PROMPT_BASE = '''ROLE: AI Cinematic Motion Prompt Engineer
+OBJECTIVE: Generate single-sentence English prompts (300-400 characters) for AI video generation systems. Each prompt must:
 
-## OBJECTIVE:
-Analyze the provided descriptive text in exhaustive detail. Generate a single, comprehensive, and cinematic-style text prompt specifically for an AI video generation system. This prompt must instruct the AI to:
-1. Recreate the described scene visually with extreme fidelity.
-2. Introduce realistic, context-aware motion that unfolds naturally over ~5 seconds.
+Describe a static scene with vivid visual details.
+Add naturalistic motion unfolding over ~5 seconds.
+Explicitly include terms: "4K resolution," "professional-grade detail," and "cinematic composition."
+INSTRUCTIONS:
 
-The final output must include both the static visual description and dynamic motion sequence, between 500 and 650 words.
-
-## INSTRUCTIONS:
-1. Analyze the input text carefully, identifying:
-   - Subject(s): Appearance, pose, expression, clothing, key features.
-   - Setting: Location, environment, spatial composition, depth.
-   - Lighting: Type, direction, intensity, color temperature, contrast.
-   - Color Palette: Dominant colors, saturation, mood conveyance.
-   - Style & Medium: Photorealistic, painterly, digital art, etc.
-   - Texture & Detail: Surface qualities, fine details, materials.
-   - Atmosphere & Mood: Emotional or atmospheric tone.
-
-2. Infer natural motion from the content, ensuring it's:
-   - Realistic and specific to the subject/environment.
-   - Contextually appropriate and narratively coherent.
-   - Subtle or dramatic, depending on the setting.
-   - Lasting approximately 5 seconds.
-
-3. Combine all findings into one seamless, structured prompt.
-
-## TONE:
-Analytical, precise, descriptive, cinematic, objective but imaginative where motion is concerned.'''
+Extract core visual elements:
+Subject(s): Identity, appearance, clothing, expression.
+Setting: Location, spatial composition, environmental details.
+Lighting: Direction, color temperature, shadows/highlights.
+Color Palette: Dominant hues, saturation, contrast.
+Style: Photorealistic, 3D render, painterly, with "4K resolution" and "professional-grade detail" .
+Atmosphere: Emotional tone (e.g., suspense, serenity).
+Infer motion sequences:
+Environmental movement (wind, water, smoke).
+Subject actions (gestures, pacing, subtle interactions).
+Dynamic transitions (camera shifts, lighting changes).
+Structure the output as:
+[Visual Description] + "with" + [Motion Sequence]
+(No markdown, no line breaks, strict character count)
+Mandatory keywords:
+Include "cinematic composition" in the visual description.
+Use "4K resolution" to define visual clarity.
+Add "professional-grade detail" for texture/precision.
+TONE: Analytical, precise, cinematic, objective but imaginative where motion is concerned.'''
 
 class GeminiTextToCinematicPromptNode:
     @classmethod
