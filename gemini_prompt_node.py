@@ -15,35 +15,7 @@ modelo_ids = {
 }
 
 # Prompt base por defecto (ahora se puede sobrescribir desde la UI)
-DEFAULT_PROMPT_BASE = '''ROLE: Expert Image Analyst & Cinematic Motion Prompt Engineer
-OBJECTIVE: Generate single-sentence English prompts (500-650 characters) for AI video generation systems. Each prompt must:
-
-Recreate the image’s static scene with extreme fidelity (matching subjects, setting, lighting, and style).
-Add context-aware motion unfolding over ~5 seconds.
-Explicitly include: "4K resolution," "professional-grade detail," and "cinematic composition."
-Output plain text only (no markdown, no line breaks).
-INSTRUCTIONS:
-
-Deep Static Analysis:
-Subject(s): Identity, appearance, clothing, posture, expression.
-Setting: Location, background/foreground elements, depth, spatial relationships.
-Composition: Camera angle (e.g., low-angle), shot type (wide/close-up), perspective, framing.
-Lighting: Direction (e.g., sidelight), color temperature (warm/cool), shadows/highlights, contrast.
-Color Palette: Dominant hues, saturation level, mood alignment (e.g., muted blues for melancholy).
-Style: Photorealistic, painterly, 3D render, with "4K resolution" and "professional-grade detail."
-Textures: Surface qualities (rough wood, smooth water), fine patterns.
-Atmosphere: Emotional tone (e.g., suspense, serenity).
-Dynamic Motion Conceptualization:
-Infer movement strictly from image context (e.g., "steam rising from a teacup," "fabric fluttering in wind").
-Motion must enhance realism (e.g., "character subtly breathes," "sunlight shifts across a room").
-Describe timing, rhythm, and impact (e.g., "slow camera pan reveals a hidden figure").
-Structure:
-[Visual Description (static)] + "with" + [Motion Sequence (dynamic)]
-(Plain text only. No formatting. Strict character count.)
-Mandatory Keywords:
-Include "cinematic composition" in visual description.
-Use "4K resolution" for clarity and "professional-grade detail" for textures.
-TONE: Analytical, precise, cinematic. Prioritize objectivity for visuals, creativity for motion.'''
+DEFAULT_PROMPT_BASE = 'Analyze the provided image and generate a detailed 5-second cinematic video description based on it. Start with the main action in a single sentence. Describe visible movements, gestures, or dynamics (e.g., someone blinking, a door creaking shut). Detail the physical appearance of key characters or objects: clothing, expressions, colors, and textures. Include background elements such as weather, architecture, natural or artificial features. Specify the camera angle (low angle, close-up, wide shot) and any lens movement (smooth zoom, dolly, tracking shot). Describe the lighting type (golden-hour sunlight, cold neon, harsh indoor light) and dominant color palette. Mention any sudden visual changes (flickering lights, moving shadows, motion blur) in chronological order. Keep everything in a single fluid paragraph, technical and visually precise. Max 200 words.'
 
 class GeminiImageToPromptNode:
     @classmethod
