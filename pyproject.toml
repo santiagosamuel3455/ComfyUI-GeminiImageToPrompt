@@ -1,0 +1,15 @@
+[project]
+name = "geminiimagetoprompt"
+description = "Imagen descripcion prompt system"
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["google-generativeai", "Pillow"]
+
+[project.urls]
+Repository = "https://github.com/santiagosamuel3455/ComfyUI-GeminiImageToPrompt"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-GeminiImageToPrompt"
+Icon = ""
